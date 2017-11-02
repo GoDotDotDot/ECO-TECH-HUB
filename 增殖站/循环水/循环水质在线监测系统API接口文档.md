@@ -88,7 +88,7 @@ HTTP
 
 2.方法
 
-POST
+PUT
 
 3.Request
 
@@ -221,7 +221,7 @@ HTTP
 
 2.方法
 
-POST
+PUT
 
 3.Request
 
@@ -401,7 +401,7 @@ HTTP
 
 2.方法
 
-POST
+PUT
 
 3.Request
 
@@ -620,7 +620,7 @@ HTTP
 
 2.方法
 
-PUT
+POST
 
 3.Request
 
@@ -648,7 +648,7 @@ HTTP
 
 2.方法
 
-POST
+PUT
 
 3.Rquest
 
