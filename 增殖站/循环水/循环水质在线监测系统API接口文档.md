@@ -40,7 +40,7 @@ GET
 
 ## 设备运行状态
 
-### 1.ws:deviceStatus(获取实时的设备运行的状态数据)
+### 1.ws:equipmentStatusWebSocket(获取实时的设备运行的状态数据)
 
 1.类型
 
@@ -58,7 +58,6 @@ Websocket
 
 ```json
 {
-  data: {
     "controlType": ['增温泵', '供氧泵', '投饵机', '氨氮仪'], //设备的名称
     "deviceCode": ['SCLSAGRWSEID0001', 'SCLSAGRWSEID0002', 'SCLSAGRWSEID0003', 				'SCLSAGWQSWOD0001'], 									//对应的设备编号
     "mode": ["自动", "手动", "自动", "手动"],			//现在对应的模式
@@ -77,7 +76,6 @@ Websocket
       null
     ]
   }
-}
 ```
 
 ## 设备运行控制(待商议)
@@ -241,11 +239,13 @@ POST
     "date": "周一",
     "startDate": "22:00:00",
     "endDate": "23:00:00",
+	"key":"id",
   },
   {
     "date": "周一",
     "startDate": "22:00:00",
     "endDate": "23:00:00",
+	"key":"id",
   }
 ]
 ```
@@ -254,7 +254,6 @@ POST
 
 ```json
 {
-  "statusCode":200,// 500 304 404...
   "message":"成功！" // 消息,
   "status":true
 }
@@ -262,7 +261,7 @@ POST
 
 ## 监测数据
 
-### 1.ws:monitorData（获取实时监测数据）
+### 1.ws:sensorsDataWebSocket（获取实时监测数据）
 
 1.类型
 
