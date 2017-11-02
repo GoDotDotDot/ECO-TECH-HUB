@@ -229,7 +229,7 @@ PUT
 | ---- | -------- | -------------------------- |
 | id   | `string` | 设备ID                       |
 | mode | `string` | 当前控制模式，可选项为`auto`、`manual` |
-| data | `Array`  |                            |
+| data | `Object`  |                            |
 
 当`data`为`Object`时，数据格式如下：
 
