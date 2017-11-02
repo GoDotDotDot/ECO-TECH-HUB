@@ -1,5 +1,7 @@
 # 循环水质在线监测系统API接口文档(草稿)
 
+UPDATE DATE:  `2017/10/25 14:59`
+
 [TOC]
 
 ## 首页
@@ -8,7 +10,7 @@
 
 ## 监控视频
 
-### 1.GET://monitorVideo/:stationId（获取监控视频页面的URL）
+### 1.GET:monitorVideo/:stationId（获取监控视频页面的URL）
 
 1.类型
 
@@ -38,7 +40,7 @@ GET
 
 ## 设备运行状态
 
-### 1.ws://deviceStatus(获取实时的设备运行的状态数据)
+### 1.ws:deviceStatus(获取实时的设备运行的状态数据)
 
 1.类型
 
@@ -78,13 +80,189 @@ Websocket
 }
 ```
 
-## 设备运行控制
+## 设备运行控制(待商议)
 
+### 1.POST:switchControlMode/:stationId(切换控制模式)
 
+1.类型
+
+HTTP
+
+2.方法
+
+POST
+
+3.Request
+
+| 参数名称 | 参数类型     | 说明                          |
+| ---- | -------- | --------------------------- |
+| mode | `string` | 要切换到的模式，可选值有`auto`、`manual` |
+| id   | `string` | 设备ID                        |
+
+4.Response
+
+- `mode`为`auto`时
+
+```json
+{
+  "mode": "auto",
+  "key": "设备ID",
+  "data": [
+    {
+      "date": "周一",
+      "startDate": "22:00:00",
+      "endDate": "23:00:00",
+      "key": "id" // key为id值
+    },
+    {
+      "date": "每天",
+      "startDate": "22:00:00",
+      "endDate": "23:00:00",
+      "key": "id" // key为id值
+    }
+  ]
+}
+```
+
+- `mode`为`manual`时
+
+```json
+{
+  "mode": "manual",
+  "key": "设备ID",
+  "data": true // true 表示开,false表示关
+}
+```
+
+### 2.GET:deviceControl/:stationId(获取设备运行控制所有数据)
+
+1.类型
+
+HTTP
+
+2.方法
+
+GET
+
+3.Requset
+
+| 参数名称        | 参数类型                      | 备注   |
+| ----------- | ------------------------- | ---- |
+| station     |                           | 站点ID |
+| currentTime | date(yyyy-MM-dd hh:mm:ss) | 当前时间 |
+| stationName | string                    | 站点名称 |
+
+4.Response
+
+```json
+{
+  "data": [
+    {
+      "type": "设备间",
+      "pools": [
+        {
+          "name": "1号池",
+          "mode": "auto",
+          "key":"设备id",
+          "data": [
+            {
+              "date": "周一",
+              "startDate": "22:00:00",
+              "endDate": "23:00:00",
+              "key": "id" // key为id值
+            },
+            {
+              "date": "周一",
+              "startDate": "22:00:00",
+              "endDate": "23:00:00",
+              "key": "id" // key为id值
+            }
+          ]
+        },
+        {
+          "name": "2号池",
+          "mode": "manual",
+          "data": true,
+          "key":"设备id",
+        }
+      ]
+    },
+    {
+      "type": "驯养池",
+      "pools": [
+        {
+          "name": "1号池",
+          "mode": "auto"
+          "key":"设备id",
+          "data": [
+            {
+              "date": "周一",
+              "startDate": "22:00:00",
+              "endDate": "23:00:00",
+              "key": "id" // key为id值
+            },
+            {
+              "date": "周一",
+              "startDate": "22:00:00",
+              "endDate": "23:00:00",
+              "key": "id" // key为id值
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+### 3.POST:deviceControl/:staionId(修改指定设备控制数据)
+
+1.类型
+
+HTTP
+
+2.方法
+
+POST
+
+3.Request
+
+| 参数名称 | 参数类型     | 说明                         |
+| ---- | -------- | -------------------------- |
+| id   | `string` | 设备ID                       |
+| mode | `string` | 当前控制模式，可选项为`auto`、`manual` |
+| data | `Array`  |                            |
+
+当`data`为`Array`时，数据格式如下：
+
+```json
+[
+  {
+    "date": "周一",
+    "startDate": "22:00:00",
+    "endDate": "23:00:00",
+  },
+  {
+    "date": "周一",
+    "startDate": "22:00:00",
+    "endDate": "23:00:00",
+  }
+]
+```
+
+4.Response
+
+```json
+{
+  "statusCode":200,// 500 304 404...
+  "message":"成功！" // 消息,
+  "status":true
+}
+```
 
 ## 监测数据
 
-### 1.ws://monitorData（获取实时监测数据）
+### 1.ws:monitorData（获取实时监测数据）
 
 1.类型
 
@@ -175,44 +353,42 @@ GET
       "unit": "mg/L",
       "maxValue": "20",
       "minValue": "18",
-      "id":"id值"
+      "key":"id值"
     },
     {
       "title": "光照强度",
       "unit": "Lx",
       "maxValue": "59",
       "minValue": "32",
-      "id":"id值"
-
-
+      "keykey":"id值"
     },
     {
       "title": "温度",
       "unit": "C",
       "maxValue": "25",
       "minValue": "5",
-      "id":"id值"
+      "key":"id值"
     },
     {
       "title": "氨氮",
       "unit": "mg/L",
       "maxValue": "12",
       "minValue": "2",
-      "id":"id值"
+      "key":"id值"
     },
     {
       "title": "SS(固体悬浮物)",
       "unit": "mg/L",
       "maxValue": "19",
       "minValue": "9",
-      "id":"id值"
+      "key":"id值"
     },
     {
       "title": "臭氧",
       "unit": "mg/L",
       "maxValue": "25",
       "minValue": "5",
-      "id":"id值"
+      "key":"id值"
     }
   ]
 }
@@ -250,7 +426,7 @@ POST
 
 ## 监测数据查询
 
-### 1.GET://montorData/:stationId（查询历史数据生成报表）
+### 1.GET:montorData/:stationId（查询历史数据生成报表）
 
 1.类型
 
@@ -318,7 +494,432 @@ GET
 
 ## 值班人员设置
 
+### 1.GET:operatorSetting/:stationId（值班人员设置获取数据）
+
+1.类型
+
+HTTP
+
+2.方法
+
+GET
+
+3.Request
+
+| 参数名称      | 参数类型 | 备注   |
+| --------- | ---- | ---- |
+| stationId |      | 站点ID |
+
+4.Response
+
+```json
+'data': [{
+    'key': '0',
+    'name': {
+      'value': '谢海龙'
+    },
+    'age': {
+      'value': '22'
+    },
+    'telephone': {
+      'value': '18781785233'
+    },
+    'address': {
+      'value': '四川省成都市锦江区金红苑',
+    },
+    'nearTime': {
+      'value': '周四'
+    }
+  }, {
+    'key': '1',
+    'name': {
+      'value': '曾世平'
+    },
+    'age': {
+      'value': '24'
+    },
+    'telephone': {
+      'value': '9090989'
+    },
+    'address': {
+      'value': '四川省成都市锦江区',
+    },
+    'nearTime': {
+      'value': '周一'
+    }
+  }, {
+    'key': '2',
+    'name': {
+      'value': '梁熊'
+    },
+    'age': {
+      'value': '24'
+    },
+    'telephone': {
+      'value': '123456789'
+    },
+    'address': {
+      'value': '四川省成都市',
+    },
+    'nearTime': {
+      'value': '周二'
+    }
+  }, {
+    'key': '3',
+    'name': {
+      'value': '储奎'
+    },
+    'age': {
+      'value': '22'
+    },
+    'telephone': {
+      'value': '6523652'
+    },
+    'address': {
+      'value': '四川省成都市',
+    },
+    'nearTime': {
+      'value': '周三'
+    }
+  }]
+```
+
+### 2.DELET:operatorSetting/:stationId（值班人员设置删除数据）
+
+1.类型
+
+HTTP
+
+2.方法
+
+DELETE
+
+3.Request
+
+| 参数名称       | 参数类型   | 备注    |
+| ---------- | ------ | ----- |
+| stationId  |        | 站点ID  |
+| userName   | String | 谁操作的  |
+| data       | obj    | 删除的数据 |
+| employeeId |        | 员工ID  |
+
+4.Response
+
+```json
+{
+  "statusCode":200,// 500 304 404...
+  "message":"成功！" // 消息,
+  "status":true
+}
+```
+
+### 3.PUT:operatorSetting/:stationId（值班人员设置添加数据）
+
+1.类型
+
+HTTP
+
+2.方法
+
+PUT
+
+3.Request
+
+| 参数名称      | 参数类型   | 备注      |
+| --------- | ------ | ------- |
+| stationId |        | 站点ID    |
+| data      | obj    | 添加的相关数据 |
+| userName  | String | 谁操作的    |
+
+4.Rsponse
+
+```json
+{
+  "statusCode":200,// 500 304 404...
+  "message":"成功！" // 消息,
+  "status":true
+}
+```
+
+### 4.POST:operatorSetting/:stationId（值班人员设置修改数据）
+
+1.类型
+
+HTTP
+
+2.方法
+
+POST
+
+3.Rquest
+
+| 参数名称       | 参数类型   | 备注    |
+| ---------- | ------ | ----- |
+| stationId  |        | 站点ID  |
+| data       | obj    | 修改的数据 |
+| userName   | String |       |
+| employeeId |        | 员工ID  |
+
+4.Response
+
+```json
+{
+  "statusCode":200,// 500 304 404...
+  "message":"成功！" // 消息,
+  "status":true
+}
+```
+
+##日志
+
+### 1.GET:warnLogs/all/:stationId(获取指定时间内所有报警日志)
+
+1.类型
+
+HTTP
+
+2.方法
+
+GET
+
+3.Request
+
+| 参数名称      | 参数类型                  | 说明    |
+| --------- | --------------------- | ----- |
+| startDate | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
+| endDate   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
+| page      | `number`              | 请求的页码 |
+
+4.Response
+
+```json
+{
+  "totalPages":10,//总页码数
+  "data": [
+    {
+      "message": "预警信息1",
+      "date": "2017-10-23 14:00:00",
+      "readStatus": true,
+      "operator": "管理员1",
+      "key": 1 //id值
+    },
+    {
+      "message": "预警信息2",
+      "date": "2017-10-23 14:00:00",
+      "readStatus": false,
+      "operator": "管理员2",
+      "key": 2
+    },
+    {
+      "message": "预警信息3",
+      "date": "2017-10-23 14:00:00",
+      "readStatus": true,
+      "operator": "管理员1",
+      "key": 3
+    },
+    {
+      "message": "预警信息4",
+      "date": "2017-10-23 14:00:00",
+      "readStatus": false,
+      "operator": "管理员2",
+      "key": 4
+    }
+  ]
+}
+```
+
+### 2.GET:warnLogs/readed/:stationId(获取指定时间内已读报警日志)
+
+1.类型
+
+HTTP
+
+2.方法
+
+GET
+
+3.Request
+
+| 参数名称      | 参数类型                  | 说明    |
+| --------- | --------------------- | ----- |
+| startDate | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
+| endDate   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
+| page      | `number`              | 请求的页码 |
+
+4.Response
+
+```json
+{
+  "totalPages":10,//总页码数
+  "data": [
+    {
+      "message": "预警信息2",
+      "date": "2017-10-23 14:00:00",
+      "readStatus": true,
+      "operator": "管理员2",
+      "key": 1 // id值
+    },
+    {
+      "message": "预警信息1",
+      "date": "2017-10-23 14:00:00",
+      "readStatus": true,
+      "operator": "管理员1",
+      "key": 2
+    },
+    {
+      "message": "预警信息2",
+      "date": "2017-10-23 14:00:00",
+      "readStatus": true,
+      "operator": "管理员2",
+      "key": 3
+    },
+    {
+      "message": "预警信息1",
+      "date": "2017-10-23 14:00:00",
+      "readStatus": true,
+      "operator": "管理员1",
+      "key": 4
+    }
+  ]
+}
+```
+
+### 3.GET:warnLogs/unread/:stationId(获取指定时间内未读报警日志)
+
+1.类型
+
+HTTP
+
+2.方法
+
+GET
+
+3.Request
+
+| 参数名称      | 参数类型                  | 说明    |
+| --------- | --------------------- | ----- |
+| startDate | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
+| endDate   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
+| page      | `number`              | 请求的页码 |
+
+4.Response
+
+```json
+{
+  "totalPages":10,//总页码数
+  "data": [
+    {
+      "message": "预警信息2",
+      "date": "2017-10-23 14:00:00",
+      "readStatus": false,
+      "operator": "管理员2",
+      "key": 1 // id值
+    },
+    {
+      "message": "预警信息1",
+      "date": "2017-10-23 14:00:00",
+      "readStatus": false,
+      "operator": "管理员1",
+      "key": 2
+    },
+    {
+      "message": "预警信息2",
+      "date": "2017-10-23 14:00:00",
+      "readStatus": false,
+      "operator": "管理员2",
+      "key": 3
+    },
+    {
+      "message": "预警信息1",
+      "date": "2017-10-23 14:00:00",
+      "readStatus": false,
+      "operator": "管理员1",
+      "key": 4
+    }
+  ]
+}
+```
+
+### 4.POST:warnLogs/:stationId/(获取指定时间内操作日志)
+
+1.类型
+
+HTTP
+
+2.方法
+
+GET
+
+3.Request
+
+| 参数名称 | 参数类型    | 说明        |
+| ---- | ------- | --------- |
+| id   | `Array` | 需要标记已读的ID |
+
+4.Response
+
+```json
+{
+  "status":true,//true or false
+  "message":"操作成功！" //提示消息
+}
+```
 
 
-## 日志
+
+### 5.GET:operationLogs/:stationId(获取指定时间内操作日志)
+
+1.类型
+
+HTTP
+
+2.方法
+
+GET
+
+3.Request
+
+| 参数名称      | 参数类型                  | 说明    |
+| --------- | --------------------- | ----- |
+| startDate | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
+| endDate   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
+| page      | `number`              | 请求的页码 |
+
+4.Response
+
+```json
+{
+  "totalPages":10,//总页码数
+  "data": [
+    {
+      "action": "操作项。。。开启什么。。。",
+      "date": "2017-10-23 14:00:00",
+      "phone": "123456",
+      "operator": "管理员2",
+      "key": 1 // id值
+    },
+    {
+      "action": "操作项。。。开启什么。。。",
+      "date": "2017-10-23 14:00:00",
+      "phone": "123456",
+      "operator": "管理员2",
+      "key": 1
+    },
+    {
+      "action": "操作项。。。开启什么。。。",
+      "date": "2017-10-23 14:00:00",
+      "phone": "123456",
+      "operator": "管理员2",
+      "key": 1
+    },
+    {
+      "action": "操作项。。。开启什么。。。",
+      "date": "2017-10-23 14:00:00",
+      "phone": "123456",
+      "operator": "管理员2",
+      "key": 1
+    },
+  ]
+}
+```
 
