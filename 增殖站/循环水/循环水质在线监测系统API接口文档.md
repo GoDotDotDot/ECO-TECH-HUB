@@ -80,7 +80,7 @@ Websocket
 
 ## 设备运行控制(待商议)
 
-### 1.POST:switchControlMode/:stationId(切换控制模式)
+### 1.PUT:switchControlMode/:stationId(切换控制模式)
 
 1.类型
 
@@ -213,7 +213,7 @@ GET
 }
 ```
 
-### 3.POST:deviceControl/:staionId(修改指定设备控制数据)
+### 3.PUT:deviceControl/:staionId(修改指定设备控制数据)
 
 1.类型
 
@@ -393,7 +393,7 @@ GET
 }
 ```
 
-### 2.POST:threshold/:stationId(修改指定传感器的阈值)
+### 2.PUT:threshold/:stationId(修改指定传感器的阈值)
 
 1.类型
 
@@ -612,7 +612,7 @@ DELETE
 }
 ```
 
-### 3.PUT:operatorSetting/:stationId（值班人员设置添加数据）
+### 3.POST:operatorSetting/:stationId（值班人员设置添加数据）
 
 1.类型
 
@@ -640,7 +640,7 @@ PUT
 }
 ```
 
-### 4.POST:operatorSetting/:stationId（值班人员设置修改数据）
+### 4.PUT:operatorSetting/:stationId（值班人员设置修改数据）
 
 1.类型
 
@@ -839,7 +839,7 @@ GET
 }
 ```
 
-### 4.POST:warnLogs/:stationId/(获取指定时间内操作日志)
+### 4.GET:warnLogs/:stationId/(获取指定时间内操作日志)
 
 1.类型
 
