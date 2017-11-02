@@ -231,25 +231,25 @@ PUT
 | mode | `string` | 当前控制模式，可选项为`auto`、`manual` |
 | data | `Array`  |                            |
 
-当`data`为`Array`时，数据格式如下：
+当`data`为`Object`时，数据格式如下：
 
 ```json
-[
-  {
-    "date": "周一",
-    "startDate": "22:00:00",
-    "endDate": "23:00:00",
-	"key":"id",
-  },
-  {
-    "date": "周一",
-    "startDate": "22:00:00",
-    "endDate": "23:00:00",
-	"key":"id",
-  }
-]
+{
+	"calendarId":"calendarId",
+    "mondayStartTime": "22:00:00",//周一开始时间
+    "mondayEndTime": "23:00:00",//周一结束时间
+	"tuesdayStartTime": "22:00:00",//周二开始时间
+	"tuesdayEndTime":"23:00:00",//周二结束时间
+	"everydayStartTime":"22:00:00",//每天开始时间(每天和周几只能选择一个,例如:选择了周一就不能选择每天,反之亦然)
+	"everydayEndTime":"23:00:00",//每天结束时间
+}
 ```
-
+当`data`为`Boolean`时，控制模式为`manual`，数据格式如下：
+```json
+{
+	"status":"true或者false"
+}
+```
 4.Response
 
 ```json
