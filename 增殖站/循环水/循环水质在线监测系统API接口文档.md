@@ -407,7 +407,7 @@ PUT
 
 | 参数名称     | 参数类型  | 备注   |
 | -------- | ----- | ---- |
-| sensorsId|       | id值  |
+| sensorsId| String| id值  |
 | maxValue | Float | 最大值  |
 | minValue | Float | 最小值  |
 
