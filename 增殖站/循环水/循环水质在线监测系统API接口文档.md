@@ -1,3 +1,5 @@
+
+
 # 循环水质在线监测系统API接口文档
 
 UPDATE DATE:  `2017/10/25 14:59`
@@ -5,6 +7,99 @@ UPDATE DATE:  `2017/10/25 14:59`
 [TOC]
 
 ## 首页
+
+### 1.GET:index/getAllMessage/:stationId(首页下获取传感器、报警情况、现有设备，当前值班人员相关信息)
+
+1.类型
+
+HTTP
+
+2.方法
+
+GET
+
+3.Request
+
+| 参数名称        | 参数类型                      | 备注   |
+| ----------- | ------------------------- | ---- |
+| stationdId  |                           | 站点ID |
+| stationName | string                    | 站点名称 |
+| currentTime | date(yyyy-MM-dd hh:mm:ss) | 当前时间 |
+
+4.Response
+
+```json
+{
+   "device":{
+     "total":"20", // 设备的个数
+     "working":'15',// 正在运行设备的个数
+   },
+  "sensor":{
+      "total":'10', // 传感器的个数
+      "typeCount":'3' //传感器的类别数
+  },
+  "warn":{
+      "total":"20" // 警报的总数
+      "readed":"15" //已经阅读的
+  },
+  "person":{
+      "name":'张飞',
+      "tel":'123135468',
+  }
+}
+```
+
+### 2.GET:index/getIndexTemperatureChartData (首页下获取24小时的温度数据)
+
+1.类型
+
+HTTP
+
+2.方法
+
+GET
+
+3.Request
+
+| 参数名称        | 参数类型                      | 备注              |
+| ----------- | ------------------------- | --------------- |
+| city        | string                    | 当前站点的地点名称（市级单位） |
+| currentTime | date（yyyy-MM-dd hh:mm:ss） | 当前时间            |
+
+4.Response
+
+```json
+{
+  "chartData": {
+    "xAxis": ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00"],  //时间
+    "series": ["19.8", "23.8", "15.8", "25.8", "26.8", "24.8"] //对应的温度值
+  }
+}
+```
+
+### 3.GET:index/getWeatherData (获取首页下最近5天的气象数据)
+
+1.类型
+
+HTTP
+
+2.方法
+
+GET
+
+3.Request
+
+| 参数名称 | 参数类型   | 备注             |
+| ---- | ------ | -------------- |
+| city | string | 当前站点地点名称(市级单位) |
+
+4.Response
+
+```json
+{
+    //天气接口什么数据就返回什么数据
+}
+```
 
 
 
@@ -229,7 +324,7 @@ PUT
 | ---- | -------- | -------------------------- |
 | id   | `string` | 设备ID                       |
 | mode | `string` | 当前控制模式，可选项为`auto`、`manual` |
-| data | `Object`  |                            |
+| data | `Object` |                            |
 
 当`data`为`Object`时，数据格式如下：
 
