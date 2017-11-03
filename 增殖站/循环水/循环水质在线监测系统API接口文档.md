@@ -241,9 +241,7 @@ GET
 
 | 参数名称        | 参数类型                      | 备注   |
 | ----------- | ------------------------- | ---- |
-| station     |                           | 站点ID |
-| currentTime | date(yyyy-MM-dd hh:mm:ss) | 当前时间 |
-| stationName | string                    | 站点名称 |
+| stationId     |  `string`                       | 站点ID |
 
 4.Response
 
