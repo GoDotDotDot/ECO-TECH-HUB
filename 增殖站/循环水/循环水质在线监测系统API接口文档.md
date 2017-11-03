@@ -488,7 +488,7 @@ GET
 }
 ```
 
-### 2.PUT:threshold/:stationId(修改指定传感器的阈值)
+### 2.PUT:threshold(修改指定传感器的阈值)
 
 1.类型
 
@@ -502,7 +502,7 @@ PUT
 
 | 参数名称     | 参数类型  | 备注   |
 | -------- | ----- | ---- |
-| id       |       | id值  |
+| sensorsId| String| id值  |
 | maxValue | Float | 最大值  |
 | minValue | Float | 最小值  |
 
@@ -510,7 +510,6 @@ PUT
 
 ```json
 {
-  "statusCode":200,// 500 304 404...
   "message":"成功！" // 消息,
   "status":true
 }
