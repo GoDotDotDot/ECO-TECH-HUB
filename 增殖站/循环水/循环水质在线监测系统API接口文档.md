@@ -320,7 +320,7 @@ PUT
 
 | 参数名称 | 参数类型     | 说明                         |
 | ---- | -------- | -------------------------- |
-| equipId   | `int` | 设备ID                       |
+| id   | `int`    | 设备ID                      |
 | mode | `string` | 当前控制模式，可选项为`auto`、`manual` |
 | data | `Object` |                            |
 
@@ -531,7 +531,7 @@ GET
 
 | 参数名称        | 参数类型                      | 备注   |
 | :---------- | ------------------------- | ---- |
-| stationId   | String                    | 站点id |
+| stationId   | `int`                     | 站点id |
 | startTime   | date(yyyy-MM-dd hh:mm:ss) | 开始时间 |
 | endTime     | date(yyyy-MM-dd hh:mm:ss) | 结束时间 |
 
