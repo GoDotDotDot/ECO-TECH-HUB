@@ -145,7 +145,7 @@ Websocket
 
 | 参数名称        | 参数类型                      | 备注    |
 | ----------- | ------------------------- | ----- |
-| stationId   |                           | 站点ID  |
+| stationId   | `int`                     | 站点ID  |
 | stationName | String                    | 站点名称  |
 | currentTime | date(yyyy-MM-dd hh:mm:ss) | 当前的时间 |
 
@@ -190,7 +190,7 @@ PUT
 | 参数名称 | 参数类型     | 说明                          |
 | ---- | -------- | --------------------------- |
 | mode | `string` | 要切换到的模式，可选值有`auto`、`manual` |
-| id   | `string` | 设备ID                        |
+| equipId   | `string` | 设备ID                        |
 
 4.Response
 
@@ -241,7 +241,7 @@ GET
 
 | 参数名称        | 参数类型                      | 备注   |
 | ----------- | ------------------------- | ---- |
-| stationId     |  `string`                       | 站点ID |
+| stationId     |  `int`                      | 站点ID |
 
 4.Response
 
@@ -320,7 +320,7 @@ PUT
 
 | 参数名称 | 参数类型     | 说明                         |
 | ---- | -------- | -------------------------- |
-| id   | `string` | 设备ID                       |
+| equipId   | `int` | 设备ID                       |
 | mode | `string` | 当前控制模式，可选项为`auto`、`manual` |
 | data | `Object` |                            |
 
@@ -364,7 +364,7 @@ WebSocket
 
 | 参数名称     | 参数类型     | 说明   |
 | -------- | -------- | ---- |
-| staionId | `string` | 站点ID |
+| staionId | `int` | 站点ID |
 |          |          |      |
 |          |          |      |
 
@@ -500,7 +500,7 @@ PUT
 
 | 参数名称     | 参数类型  | 备注   |
 | -------- | ----- | ---- |
-| sensorsId| String| id值  |
+| sensorsId| `int`| id值  |
 | maxValue | Float | 最大值  |
 | minValue | Float | 最小值  |
 
@@ -531,7 +531,7 @@ GET
 
 | 参数名称        | 参数类型                      | 备注   |
 | :---------- | ------------------------- | ---- |
-| stationName | String                    | 站点名称 |
+| stationId   | String                    | 站点id |
 | startTime   | date(yyyy-MM-dd hh:mm:ss) | 开始时间 |
 | endTime     | date(yyyy-MM-dd hh:mm:ss) | 结束时间 |
 
@@ -599,7 +599,7 @@ GET
 
 | 参数名称      | 参数类型 | 备注   |
 | --------- | ---- | ---- |
-| stationId |      | 站点ID |
+| stationId |   `int`   | 站点ID |
 
 4.Response
 
@@ -641,7 +641,7 @@ GET
   }, {
     "key": "2",
     "name": {
-      "value": "梁熊"
+      "value": "梁雄"
     },
     "age": {
       "value": "24"
@@ -689,7 +689,7 @@ DELETE
 
 | 参数名称       | 参数类型   | 备注    |
 | ---------- | ------ | ----- |
-| stationId  |        | 站点ID  |
+| stationId  | `int`  | 站点ID  |
 | userName   | String | 谁操作的  |
 | data       | obj    | 删除的数据 |
 | employeeId |        | 员工ID  |
@@ -718,7 +718,7 @@ POST
 
 | 参数名称      | 参数类型   | 备注      |
 | --------- | ------ | ------- |
-| stationId |        | 站点ID    |
+| stationId | `int`  | 站点ID    |
 | data      | obj    | 添加的相关数据 |
 | userName  | String | 谁操作的    |
 
@@ -746,7 +746,7 @@ PUT
 
 | 参数名称       | 参数类型   | 备注    |
 | ---------- | ------ | ----- |
-| stationId  |        | 站点ID  |
+| stationId  | `int`  | 站点ID  |
 | data       | obj    | 修改的数据 |
 | userName   | String |       |
 | employeeId |        | 员工ID  |
@@ -931,7 +931,7 @@ GET
 }
 ```
 
-### 4.GET:warnLogs/:stationId/(获取指定时间内操作日志)
+### 4.PUT:warnLogs/:stationId/(标记日志已读)
 
 1.类型
 
@@ -975,7 +975,7 @@ GET
 | startDate | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
 | endDate   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
 | page      | `number`              | 请求的页码 |
-
+| stationId | `int`					| 站点id    |
 4.Response
 
 ```json
