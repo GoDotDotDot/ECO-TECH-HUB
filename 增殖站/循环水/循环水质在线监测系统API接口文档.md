@@ -239,9 +239,9 @@ GET
 
 3.Requset
 
-| 参数名称        | 参数类型                      | 备注   |
-| ----------- | ------------------------- | ---- |
-| stationId     |  `string`                       | 站点ID |
+| 参数名称      | 参数类型     | 备注   |
+| --------- | -------- | ---- |
+| stationId | `string` | 站点ID |
 
 4.Response
 
@@ -365,8 +365,6 @@ WebSocket
 | 参数名称     | 参数类型     | 说明   |
 | -------- | -------- | ---- |
 | staionId | `string` | 站点ID |
-|          |          |      |
-|          |          |      |
 
 3.Response
 
@@ -498,11 +496,11 @@ PUT
 
 3.Request
 
-| 参数名称     | 参数类型  | 备注   |
-| -------- | ----- | ---- |
-| sensorsId| String| id值  |
-| maxValue | Float | 最大值  |
-| minValue | Float | 最小值  |
+| 参数名称      | 参数类型   | 备注   |
+| --------- | ------ | ---- |
+| sensorsId | String | id值  |
+| maxValue  | Float  | 最大值  |
+| minValue  | Float  | 最小值  |
 
 4.Response
 
