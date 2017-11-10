@@ -776,9 +776,10 @@ GET
 
 | 参数名称      | 参数类型                  | 说明    |
 | --------- | --------------------- | ----- |
-| startDate | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
-| endDate   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
-| page      | `number`              | 请求的页码 |
+| startTime | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
+| endTime   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
+| currentPage    | `int`              | 当前页码 |
+| stationId      | `int`              | 站点id |
 
 4.Response
 
@@ -788,7 +789,7 @@ GET
   "data": [
     {
       "message": "预警信息1",
-      "date": "2017-10-23 14:00:00",
+      "recordTime": "2017-10-23 14:00:00",
       "readStatus": true,
       "operator": "管理员1",
       "key": 1 //id值
@@ -832,9 +833,9 @@ GET
 
 | 参数名称      | 参数类型                  | 说明    |
 | --------- | --------------------- | ----- |
-| startDate | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
-| endDate   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
-| page      | `number`              | 请求的页码 |
+| startTime | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
+| endTime   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
+| currentPage      | `int`              | 请求的页码 |
 
 4.Response
 
@@ -888,9 +889,9 @@ GET
 
 | 参数名称      | 参数类型                  | 说明    |
 | --------- | --------------------- | ----- |
-| startDate | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
-| endDate   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
-| page      | `number`              | 请求的页码 |
+| startTime | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
+| endTime   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
+| currentPage      | `number`              | 请求的页码 |
 
 4.Response
 
@@ -971,9 +972,9 @@ GET
 
 | 参数名称      | 参数类型                  | 说明    |
 | --------- | --------------------- | ----- |
-| startDate | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
-| endDate   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
-| page      | `number`              | 请求的页码 |
+| startTime | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
+| endTime   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
+| currentPage      | `int`              | 请求的页码 |
 | stationId | `int`					| 站点id    |
 4.Response
 
