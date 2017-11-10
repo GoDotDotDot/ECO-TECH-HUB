@@ -736,15 +736,15 @@ POST
 
 | 参数名称      | 参数类型   | 备注      |
 | --------- | ------ | ------- |
-| stationId | `int`  | 站点ID    |
-| data      | obj    | 添加的相关数据 |
-| userName  | String | 谁操作的    |
+| scheduleId | `int`     | 站点ID |
+| employeeId | `int`     | 员工ID |
+| monday     | `boolean` | 周一   |
+| tuesday    | `boolean` | 周二   |
 
 4.Rsponse
 
 ```json
 {
-  "statusCode":200,// 500 304 404...
   "message":"成功！" // 消息,
   "status":true
 }
@@ -763,18 +763,17 @@ PUT
 3.Rquest
 
 | 参数名称       | 参数类型   | 备注    |
-| ---------- | ------ | ----- |
-| stationId  | `int`  | 站点ID  |
-| data       | obj    | 修改的数据 |
-| userName   | String |       |
-| employeeId |        | 员工ID  |
+| ---------- | --------- | ------ |
+| scheduleId | `int`     | 站点ID |
+| employeeId | `int`     | 员工ID |
+| monday     | `boolean` | 周一   |
+| tuesday    | `boolean` | 周二   |
 
 4.Response
 
 ```json
 {
-  "statusCode":200,// 500 304 404...
-  "message":"成功！" // 消息,
+  "message":"操作成功！" // 消息,
   "status":true
 }
 ```
