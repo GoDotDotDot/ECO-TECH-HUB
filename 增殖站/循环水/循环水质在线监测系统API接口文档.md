@@ -239,9 +239,9 @@ GET
 
 3.Requset
 
-| 参数名称        | 参数类型                      | 备注   |
-| ----------- | ------------------------- | ---- |
-| stationId     |  `string`                       | 站点ID |
+| 参数名称      | 参数类型     | 备注   |
+| --------- | -------- | ---- |
+| stationId | `string` | 站点ID |
 
 4.Response
 
@@ -260,7 +260,7 @@ GET
               "date": "周一",
               "startDate": "22:00:00",
               "endDate": "23:00:00",
-              "key": "id" // key为id值
+              "key": "id" // key为id值,该id目前相同
             },
             {
               "date": "周一",
@@ -498,11 +498,11 @@ PUT
 
 3.Request
 
-| 参数名称     | 参数类型  | 备注   |
-| -------- | ----- | ---- |
-| sensorsId| String| id值  |
-| maxValue | Float | 最大值  |
-| minValue | Float | 最小值  |
+| 参数名称      | 参数类型   | 备注   |
+| --------- | ------ | ---- |
+| sensorsId | String | id值  |
+| maxValue  | Float  | 最大值  |
+| minValue  | Float  | 最小值  |
 
 4.Response
 
