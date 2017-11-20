@@ -126,7 +126,7 @@ GET
 | type            | `string` | 资源类型，目前只有`router`和`api`两种                |
 | token[optional] | `string` | token令牌，浏览器请求可以不传，但是需要传递`session-cookie`。移动端请求必须传递`token`！ |
 | name            | `string` | 资源名称，一般为`url`名称。                         |
-| action          | `string` | 行为，为`browser`、`delete`、`insert`、`update`四种之一 |
+| action          | `string` | 行为，为`browse`、`delete`、`insert`、`update`四种之一 |
 | d               | `string` | 设备，`m`为移动设备                              |
 
 4.Response
