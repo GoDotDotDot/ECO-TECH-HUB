@@ -1,5 +1,8 @@
 
 
+
+
+
 # 循环水质在线监测系统API接口文档
 
 UPDATE DATE:  `2017/10/25 14:59`
@@ -24,7 +27,8 @@ GET
 | ----------- | ------------------------- | ---- |
 | stationdId  |                           | 站点ID |
 | stationName | string                    | 站点名称 |
-| currentTime | date(yyyy-MM-dd hh:mm:ss) | 当前时间 |
+| startTime   | String(yyyy-MM-dd hh:mm:ss) | 开始时间 |
+| endTime     | String(yyyy-MM-dd hh:mm:ss) | 结束时间 |
 
 4.Response
 
@@ -364,9 +368,8 @@ WebSocket
 
 | 参数名称     | 参数类型     | 说明   |
 | -------- | -------- | ---- |
-| staionId | `int` | 站点ID |
-|          |          |      |
-|          |          |      |
+| stationId | `int` | 站点ID |
+
 
 3.Response
 
@@ -434,6 +437,10 @@ HTTP
 GET
 
 3.Request
+
+| 参数名称     | 参数类型     | 说明   |
+| -------- | -------- | ---- |
+| stationId | `int` | 站点ID |
 
 4.Response
 
@@ -585,6 +592,76 @@ GET
 
 ## 值班人员设置
 
+### 1.GET:selectEmployeeById/:employeeId（根据id获取值班人员信息）
+
+1.类型
+
+HTTP
+
+2.方法
+
+GET
+
+3.Request
+
+| 参数名称      | 参数类型 | 备注   |
+| --------- | ---- | ---- |
+| employeeId |   `int`   | 员工id |
+
+4.Response
+
+```json
+"data": {
+        "address": "四川南充",
+        "birthday": "1993-11-15 00:00:00",
+        "dept": {
+            "deptId": 1,
+            "deptName": "技术部",
+            "manager": {
+                "employeeId": 3,
+                "employeeName": "岑参"
+            }
+        },
+        "employeeId": 1,
+        "employeeName": "梁雄",
+        "identityNumber": "511321199311158236",
+        "lastUpdateTime": "2017-11-14 14:36:15",
+        "sex": "男",
+        "telephone": "15281699634"
+    }
+
+```
+
+### 2.GET:selectEmployeeByStationId/:stationId（根据站点id查询员工(默认条件是没有值班)）
+
+1.类型
+
+HTTP
+
+2.方法
+
+GET
+
+3.Request
+
+| 参数名称      | 参数类型 | 备注   |
+| --------- | ---- | ---- |
+| stationId |   `int`   | 站点ID |
+
+4.Response
+
+```json
+"data": [
+        {
+            "address": "四川德阳",
+            "name": "洛宾王",
+            "telephone": "18781785233",
+            "key": 5,
+            "age": 925
+        }
+    ]
+```
+
 ### 1.GET:operatorSetting/:stationId（值班人员设置获取数据）
 
 1.类型
@@ -690,9 +767,7 @@ DELETE
 | 参数名称       | 参数类型   | 备注    |
 | ---------- | ------ | ----- |
 | stationId  | `int`  | 站点ID  |
-| userName   | String | 谁操作的  |
-| data       | obj    | 删除的数据 |
-| employeeId |        | 员工ID  |
+| scheduleId | `int'  | 谁操作的  |
 
 4.Response
 
@@ -1013,4 +1088,8 @@ GET
   ]
 }
 ```
+
+
+
+
 
