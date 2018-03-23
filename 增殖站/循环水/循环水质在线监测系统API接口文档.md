@@ -5,13 +5,15 @@
 
 # 循环水质在线监测系统API接口文档
 
-UPDATE DATE:  `2017/10/25 14:59`
+LAST UPDATE:  `2018/03/23 12:59`
+
+VERSION:0.2.0
 
 [TOC]
 
 ## 首页
 
-### 1.GET:index/getAllMessage/:stationId(首页下获取传感器、报警情况、现有设备，当前值班人员相关信息)
+### 1.GET:/index/getAllMessage(首页下获取传感器、报警情况、现有设备，当前值班人员相关信息)
 
 1.类型
 
@@ -23,12 +25,11 @@ GET
 
 3.Request
 
-| 参数名称        | 参数类型                      | 备注   |
-| ----------- | ------------------------- | ---- |
-| stationdId  |                           | 站点ID |
-| stationName | string                    | 站点名称 |
-| startTime   | String(yyyy-MM-dd hh:mm:ss) | 开始时间 |
-| endTime     | String(yyyy-MM-dd hh:mm:ss) | 结束时间 |
+| 参数名称        | 参数类型                    | 备注     |
+| ----------- | ----------------------------- | ---------|
+| stationdId  | `int`                         | 站点ID   |
+| startTime   | `String(yyyy-MM-dd hh:mm:ss)` | 开始时间  |
+| endTime     | `String(yyyy-MM-dd hh:mm:ss)` | 结束时间  |
 
 4.Response
 
@@ -109,7 +110,7 @@ GET
 
 ## 监控视频
 
-### 1.GET:monitorVideo/:stationId（获取监控视频页面的URL）
+### 1.GET:/monitorVideo（获取监控视频页面的URL）
 
 1.类型
 
@@ -122,9 +123,9 @@ GET
 3.Request
 
 | 参数名称        | 参数类型                      | 备注    |
-| ----------- | ------------------------- | ----- |
-| stationName | String                    | 站点名称  |
-| currentTime | date(yyyy-MM-dd hh:mm:ss) | 当前的时间 |
+| ----------- | ------------------------- | ------------- |
+| stationId   | `int`                     | 站点id        |
+| equipTypeId | `int`                     | 设备类型id     |
 
 4.Response
 
@@ -148,10 +149,10 @@ Websocket
 2.Request
 
 | 参数名称        | 参数类型                      | 备注    |
-| ----------- | ------------------------- | ----- |
-| stationId   | `int`                     | 站点ID  |
-| stationName | String                    | 站点名称  |
-| currentTime | date(yyyy-MM-dd hh:mm:ss) | 当前的时间 |
+| ----------- | --------------------------- | ----- |
+| stationId   | `int`                       | 站点ID  |
+| stationName | `String`                    | 站点名称  |
+| currentTime | `date(yyyy-MM-dd hh:mm:ss`) | 当前的时间 |
 
 3.Response
 
@@ -179,7 +180,7 @@ Websocket
 
 ## 设备运行控制(待商议)
 
-### 1.PUT:switchControlMode/:stationId(切换控制模式)
+### 1.PUT:/switchControlMode(切换控制模式)
 
 1.类型
 
@@ -194,7 +195,7 @@ PUT
 | 参数名称 | 参数类型     | 说明                          |
 | ---- | -------- | --------------------------- |
 | mode | `string` | 要切换到的模式，可选值有`auto`、`manual` |
-| equipId   | `string` | 设备ID                        |
+| equipId   | `int` | 设备id                        |
 
 4.Response
 
@@ -231,7 +232,7 @@ PUT
 }
 ```
 
-### 2.GET:deviceControl/:stationId(获取设备运行控制所有数据)
+### 2.GET:/deviceControl(获取设备运行控制所有数据)
 
 1.类型
 
@@ -244,8 +245,8 @@ GET
 3.Requset
 
 | 参数名称        | 参数类型                      | 备注   |
-| ----------- | ------------------------- | ---- |
-| stationId     |  `int`                      | 站点ID |
+| -------------- | ---------------------------- | ---- |
+| stationId      |  `int`                       | 站点id |
 
 4.Response
 
@@ -310,7 +311,7 @@ GET
 }
 ```
 
-### 3.PUT:deviceControl/:staionId(修改指定设备控制数据)
+### 3.PUT:/deviceControl(修改指定设备控制数据)
 
 1.类型
 
@@ -326,7 +327,7 @@ PUT
 | ---- | -------- | -------------------------- |
 | id   | `int`    | 设备ID                      |
 | mode | `string` | 当前控制模式，可选项为`auto`、`manual` |
-| data | `Object` |                            |
+| data | `object` |                            |
 
 当`data`为`Object`时，数据格式如下：
 
@@ -426,7 +427,7 @@ WebSocket
 
 ## 阈值设置
 
-### 1.GET:threshold/:stationId(获取阈值设置页面初始数据)
+### 1.GET:/threshold(获取阈值设置页面初始数据)
 
 1.类型
 
@@ -440,7 +441,7 @@ GET
 
 | 参数名称     | 参数类型     | 说明   |
 | -------- | -------- | ---- |
-| stationId | `int` | 站点ID |
+| stationId | `int` | 站点id |
 
 4.Response
 
@@ -506,10 +507,10 @@ PUT
 3.Request
 
 | 参数名称     | 参数类型  | 备注   |
-| -------- | ----- | ---- |
-| sensorsId| `int`| id值  |
-| maxValue | Float | 最大值  |
-| minValue | Float | 最小值  |
+| -------- | ------- | ---- |
+| sensorsId| `int`   | id值  |
+| maxValue | `float` | 最大值  |
+| minValue | `float` | 最小值  |
 
 4.Response
 
@@ -522,9 +523,9 @@ PUT
 
 
 
-## 监测数据查询
+## 监测数据查询(待商议!)
 
-### 1.GET:montorData/:stationId（查询历史数据生成报表）
+### 1.GET:/montorData（查询历史数据生成报表）
 
 1.类型
 
@@ -592,7 +593,7 @@ GET
 
 ## 值班人员设置
 
-### 1.GET:selectEmployeeById/:employeeId（根据id获取值班人员信息）
+### 1.GET:/selectEmployeeById（根据id获取值班人员信息）
 
 1.类型
 
@@ -632,7 +633,7 @@ GET
 
 ```
 
-### 2.GET:selectEmployeeByStationId/:stationId（根据站点id查询员工(默认条件是没有值班)）
+### 2.GET:/selectEmployeeByStationId（根据站点id查询员工(默认条件是没有值班)）
 
 1.类型
 
@@ -646,7 +647,7 @@ GET
 
 | 参数名称      | 参数类型 | 备注   |
 | --------- | ---- | ---- |
-| stationId |   `int`   | 站点ID |
+| stationId |   `int`   | 站点id |
 
 4.Response
 
@@ -662,7 +663,7 @@ GET
     ]
 ```
 
-### 1.GET:operatorSetting/:stationId（值班人员设置获取数据）
+### 1.GET:/operatorSetting（值班人员设置获取数据）
 
 1.类型
 
@@ -676,7 +677,7 @@ GET
 
 | 参数名称      | 参数类型 | 备注   |
 | --------- | ---- | ---- |
-| stationId |   `int`   | 站点ID |
+| stationId |   `int`   | 站点id |
 
 4.Response
 
@@ -752,7 +753,7 @@ GET
   }]
 ```
 
-### 2.DELET:operatorSetting/:stationId（值班人员设置删除数据）
+### 2.DELET:/operatorSetting（值班人员设置删除数据）
 
 1.类型
 
@@ -765,9 +766,9 @@ DELETE
 3.Request
 
 | 参数名称       | 参数类型   | 备注    |
-| ---------- | ------ | ----- |
-| stationId  | `int`  | 站点ID  |
-| scheduleId | `int'  | 谁操作的  |
+| ---------- | ------ | ------ |
+| employeeId | `int`  | 员工id  |
+| scheduleId | `int`  | 任务id  |
 
 4.Response
 
@@ -779,7 +780,7 @@ DELETE
 }
 ```
 
-### 3.POST:operatorSetting/:stationId（值班人员设置添加数据）
+### 3.POST:/operatorSetting（值班人员设置添加数据）
 
 1.类型
 
@@ -793,8 +794,7 @@ POST
 
 | 参数名称      | 参数类型   | 备注      |
 | --------- | ------ | ------- |
-| scheduleId | `int`     | 站点ID |
-| employeeId | `int`     | 员工ID |
+| employeeId | `int`     | 员工id |
 | monday     | `boolean` | 周一   |
 | tuesday    | `boolean` | 周二   |
 
@@ -807,7 +807,7 @@ POST
 }
 ```
 
-### 4.PUT:operatorSetting/:stationId（值班人员设置修改数据）
+### 4.PUT:/operatorSetting（值班人员设置修改数据）
 
 1.类型
 
@@ -821,10 +821,15 @@ PUT
 
 | 参数名称       | 参数类型   | 备注    |
 | ---------- | --------- | ------ |
-| scheduleId | `int`     | 站点ID |
-| employeeId | `int`     | 员工ID |
+| scheduleId | `int`     | 站点id |
+| employeeId | `int`     | 员工id |
 | monday     | `boolean` | 周一   |
 | tuesday    | `boolean` | 周二   |
+| wednesday  | `boolean` | 周三   |
+| thursday   | `boolean` | 周四   |
+| friday     | `boolean` | 周五   |
+| saturday   | `boolean` | 周六   |
+| sunday     | `boolean` | 周日   |
 
 4.Response
 
@@ -837,7 +842,7 @@ PUT
 
 ##日志
 
-### 1.GET:warnLogs/all/:stationId(获取指定时间内所有报警日志)
+### 1.GET:/warnLogs/all(获取指定时间内所有报警日志)
 
 1.类型
 
@@ -851,10 +856,10 @@ GET
 
 | 参数名称      | 参数类型                  | 说明    |
 | --------- | --------------------- | ----- |
+| stationId      | `int`              | 站点id |
 | startTime | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
 | endTime   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
 | currentPage    | `int`              | 当前页码 |
-| stationId      | `int`              | 站点id |
 
 4.Response
 
@@ -894,7 +899,7 @@ GET
 }
 ```
 
-### 2.GET:warnLogs/readed/:stationId(获取指定时间内已读报警日志)
+### 2.GET:/warnLogs/read(获取指定时间内已读报警日志)
 
 1.类型
 
@@ -908,9 +913,10 @@ GET
 
 | 参数名称      | 参数类型                  | 说明    |
 | --------- | --------------------- | ----- |
+| stationId | `int`              | 站点id |
 | startTime | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
 | endTime   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
-| currentPage      | `int`              | 请求的页码 |
+| currentPage      | `int`          | 请求的页码 |
 
 4.Response
 
@@ -950,7 +956,7 @@ GET
 }
 ```
 
-### 3.GET:warnLogs/unread/:stationId(获取指定时间内未读报警日志)
+### 3.GET:/warnLogs/unread(获取指定时间内未读报警日志)
 
 1.类型
 
@@ -964,9 +970,10 @@ GET
 
 | 参数名称      | 参数类型                  | 说明    |
 | --------- | --------------------- | ----- |
+| stationId | `int`              | 站点id |
 | startTime | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
 | endTime   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
-| currentPage      | `number`              | 请求的页码 |
+| currentPage      | `int`       | 请求的页码 |
 
 4.Response
 
@@ -1006,7 +1013,7 @@ GET
 }
 ```
 
-### 4.PUT:warnLogs/:stationId/(标记日志已读)
+### 4.PUT:/warnLogs/markRead(标记日志已读)
 
 1.类型
 
@@ -1014,14 +1021,18 @@ HTTP
 
 2.方法
 
-GET
+PUT
 
 3.Request
 
 | 参数名称 | 参数类型    | 说明        |
-| ---- | ------- | --------- |
-| id   | `Array` | 需要标记已读的ID |
-
+| --------| ------- | --------- |
+```json
+{
+	"data": "Array", //需要标记已读的id数组
+	"operator": "String",//操作人姓名
+}
+```
 4.Response
 
 ```json
@@ -1033,7 +1044,7 @@ GET
 
 
 
-### 5.GET:operationLogs/:stationId(获取指定时间内操作日志)
+### 5.GET:/operationLogs(获取指定时间内操作日志)
 
 1.类型
 
@@ -1047,10 +1058,11 @@ GET
 
 | 参数名称      | 参数类型                  | 说明    |
 | --------- | --------------------- | ----- |
+| stationId | `int`					| 站点id    |
 | startTime | `yyyy-MM-dd HH:mm:ss` | 开始时间  |
 | endTime   | `yyyy-MM-dd HH:mm:ss` | 结束时间  |
-| currentPage      | `int`              | 请求的页码 |
-| stationId | `int`					| 站点id    |
+| currentPage      | `int`          | 请求的页码 |
+
 4.Response
 
 ```json
