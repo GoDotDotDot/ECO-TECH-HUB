@@ -252,7 +252,7 @@ GET
 
 ```json
 {
-  "data": [
+  "data": 
     {
       "type": "设备间",
       "pools": [
@@ -282,32 +282,7 @@ GET
           "key":"设备id",
         }
       ]
-    },
-    {
-      "type": "驯养池",
-      "pools": [
-        {
-          "name": "1号池",
-          "mode": "auto"
-          "key":"设备id",
-          "data": [
-            {
-              "date": "周一",
-              "startDate": "22:00:00",
-              "endDate": "23:00:00",
-              "key": "id" // key为id值
-            },
-            {
-              "date": "周一",
-              "startDate": "22:00:00",
-              "endDate": "23:00:00",
-              "key": "id" // key为id值
-            }
-          ]
-        }
-      ]
-    }
-  ]
+   }
 }
 ```
 
