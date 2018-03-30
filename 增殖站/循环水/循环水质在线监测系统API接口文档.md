@@ -7,7 +7,7 @@
 
 LAST UPDATE:  `2018/03/23 12:59`
 
-VERSION:0.2.0
+VERSION:0.2.1
 
 [TOC]
 
@@ -252,7 +252,7 @@ GET
 
 ```json
 {
-  "data": [
+  "data": 
     {
       "type": "设备间",
       "pools": [
@@ -282,32 +282,7 @@ GET
           "key":"设备id",
         }
       ]
-    },
-    {
-      "type": "驯养池",
-      "pools": [
-        {
-          "name": "1号池",
-          "mode": "auto"
-          "key":"设备id",
-          "data": [
-            {
-              "date": "周一",
-              "startDate": "22:00:00",
-              "endDate": "23:00:00",
-              "key": "id" // key为id值
-            },
-            {
-              "date": "周一",
-              "startDate": "22:00:00",
-              "endDate": "23:00:00",
-              "key": "id" // key为id值
-            }
-          ]
-        }
-      ]
-    }
-  ]
+   }
 }
 ```
 
@@ -525,7 +500,7 @@ PUT
 
 ## 监测数据查询(待商议!)
 
-### 1.GET:/montorData（查询历史数据生成报表）
+### 1.GET:/monitorData（查询历史数据生成报表）
 
 1.类型
 
