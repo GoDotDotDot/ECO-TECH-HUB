@@ -252,12 +252,13 @@ GET
 
 ```json
 {
-  "data": [
+  "data": 
     {
       "type": "设备间",
       "pools": [
         {
-          "name": "1号池",
+          "name":"酸碱度",
+		  "number": "1号池",
           "mode": "auto",
           "key":"设备id",
           "data": [
@@ -280,34 +281,15 @@ GET
           "mode": "manual",
           "data": true,
           "key":"设备id",
-        }
-      ]
-    },
-    {
-      "type": "驯养池",
-      "pools": [
+        },
         {
-          "name": "1号池",
-          "mode": "auto"
+          "name": "3号池",
+          "mode": "smart",
+          "data": "设备智能运行控制中!",
           "key":"设备id",
-          "data": [
-            {
-              "date": "周一",
-              "startDate": "22:00:00",
-              "endDate": "23:00:00",
-              "key": "id" // key为id值
-            },
-            {
-              "date": "周一",
-              "startDate": "22:00:00",
-              "endDate": "23:00:00",
-              "key": "id" // key为id值
-            }
-          ]
         }
       ]
-    }
-  ]
+   }
 }
 ```
 
@@ -326,7 +308,7 @@ PUT
 | 参数名称 | 参数类型     | 说明                         |
 | ---- | -------- | -------------------------- |
 | id   | `int`    | 设备ID                      |
-| mode | `string` | 当前控制模式，可选项为`auto`、`manual` |
+| mode | `string` | 当前控制模式，可选项为`auto`、`manual`、`smart` |
 | data | `object` |                            |
 
 当`data`为`Object`时，数据格式如下：
@@ -376,7 +358,7 @@ WebSocket
 
 ```json
 {
-  "data": [
+  "data":
     {
       "type": "设备间",
       "pools": [
@@ -398,30 +380,7 @@ WebSocket
           ]
         }
       ]
-    },
-    {
-        "type": "驯养池",
-        "pools": [
-          {
-            "name": "1号池",
-            "data": [
-              {
-                "num": 14,
-                "unit": "mg/L",
-                "name": "PH(酸碱度)",
-                "status":"danger"
-              },
-              {
-                "num": 14,
-                "unit": "mg/L",
-                "name": "PH(酸碱度)",
-                "status":"normal"
-              }
-            ]
-          }
-        ]
-      }
-  ]
+    }
 }
 ```
 
@@ -525,7 +484,7 @@ PUT
 
 ## 监测数据查询(待商议!)
 
-### 1.GET:/montorData（查询历史数据生成报表）
+### 1.GET:/monitorData（查询历史数据生成报表）
 
 1.类型
 
