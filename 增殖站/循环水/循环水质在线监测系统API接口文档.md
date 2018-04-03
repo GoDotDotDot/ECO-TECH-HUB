@@ -339,7 +339,7 @@ PUT
 }
 ```
 
-## 监测数据1
+## 监测数据11
 
 ### 1.ws:sensorsDataWebSocket（获取实时监测数据）
 
