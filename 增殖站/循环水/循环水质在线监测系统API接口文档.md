@@ -358,7 +358,7 @@ WebSocket
 
 ```json
 {
-  "data": [
+  "data":
     {
       "type": "设备间",
       "pools": [
@@ -380,30 +380,7 @@ WebSocket
           ]
         }
       ]
-    },
-    {
-        "type": "驯养池",
-        "pools": [
-          {
-            "name": "1号池",
-            "data": [
-              {
-                "num": 14,
-                "unit": "mg/L",
-                "name": "PH(酸碱度)",
-                "status":"danger"
-              },
-              {
-                "num": 14,
-                "unit": "mg/L",
-                "name": "PH(酸碱度)",
-                "status":"normal"
-              }
-            ]
-          }
-        ]
-      }
-  ]
+    }
 }
 ```
 
