@@ -176,8 +176,7 @@ GET
 ```json
 {
   "data":{
-      "playerUrlEnter": ["//vjs.zencdn.net/v/oceans.mp4"], //室内视频URL
-      "playerUrlOuter": ["//vjs.zencdn.net/v/oceans.mp4"]  //室外视屏URL
+      "playerUrl": ["//vjs.zencdn.net/v/oceans.mp4"], //视频URL(不区分室内外)
   } 
 }
 ```
