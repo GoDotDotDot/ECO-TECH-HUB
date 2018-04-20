@@ -340,11 +340,11 @@ PUT
 
 ## 监测数据
 
-### 1.ws:sensorsDataWebSocket（获取实时监测数据）
+### 1.get:/sensorsData（获取实时监测数据）
 
 1.类型
 
-WebSocket
+HTTP
 
 2.Request
 
