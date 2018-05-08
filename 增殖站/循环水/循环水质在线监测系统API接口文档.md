@@ -357,29 +357,20 @@ HTTP
 
 ```json
 {
-  "data":
-    {
-      "type": "设备间",
-      "pools": [
+    "data": [
         {
-          "name": "1号池",
-          "data": [
-            {
-              "num": 14,
-              "unit": "mg/L",
-              "name": "PH(酸碱度)",
-              "status":"normal"
-            },
-            {
-              "num": 14,
-              "unit": "mg/L",
-              "name": "氨氮",
-              "status":"danger"
-            }
-          ]
+            "num": 14,
+            "unit": "mg/L",
+            "name": "PH(酸碱度)",
+            "status":"normal"
+        },
+        {
+            "num": 14,
+            "unit": "mg/L",
+            "name": "氨氮",
+            "status":"danger"
         }
-      ]
-    }
+    ]
 }
 ```
 
