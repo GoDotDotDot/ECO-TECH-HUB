@@ -183,11 +183,11 @@ GET
 
 ## 设备运行状态
 
-### 1.ws:equipmentStatusWebSocket(获取实时的设备运行的状态数据)
+### 1.GET:equipmentStatus(获取实时的设备运行的状态数据)
 
 1.类型
 
-Websocket
+GET
 
 2.Request
 
@@ -202,7 +202,7 @@ Websocket
 ```json
 {
     "controlType": ["增温泵", "供氧泵", "投饵机", "氨氮仪"], //设备的名称
-    "deviceCode": ["SCLSAGRWSEID0001", "SCLSAGRWSEID0002", "SCLSAGRWSEID0003", 				"SCLSAGWQSWOD0001"], 									//对应的设备编号
+    "deviceCode": ["001-坝下", "002-弯道", "003-坝上"],	//对应的设备编号
     "mode": ["自动", "手动", "自动", "手动"],			//现在对应的模式
     "status": [true, false, true, false],			  //这种模式下的是否开启的状态
     "tableData": [{									  //如果是手动那么传null，自动就传{json}
@@ -384,11 +384,11 @@ PUT
 
 ## 监测数据
 
-### 1.ws:sensorsDataWebSocket（获取实时监测数据）
+### 1.get:/sensorsData（获取实时监测数据）
 
 1.类型
 
-WebSocket
+HTTP
 
 2.Request
 
@@ -401,29 +401,20 @@ WebSocket
 
 ```json
 {
-  "data":
-    {
-      "type": "设备间",
-      "pools": [
+    "data": [
         {
-          "name": "1号池",
-          "data": [
-            {
-              "num": 14,
-              "unit": "mg/L",
-              "name": "PH(酸碱度)",
-              "status":"normal"
-            },
-            {
-              "num": 14,
-              "unit": "mg/L",
-              "name": "氨氮",
-              "status":"danger"
-            }
-          ]
+            "num": 14,
+            "unit": "mg/L",
+            "name": "PH(酸碱度)",
+            "status":"normal"
+        },
+        {
+            "num": 14,
+            "unit": "mg/L",
+            "name": "氨氮",
+            "status":"danger"
         }
-      ]
-    }
+    ]
 }
 ```
 
