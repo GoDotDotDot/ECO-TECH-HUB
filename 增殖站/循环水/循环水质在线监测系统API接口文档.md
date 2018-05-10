@@ -362,13 +362,15 @@ HTTP
             "num": 14,
             "unit": "mg/L",
             "name": "PH(酸碱度)",
-            "status":"normal"
+            "maximum": 20,
+            "minimum": 3
         },
         {
             "num": 14,
             "unit": "mg/L",
             "name": "氨氮",
-            "status":"danger"
+            "maximum": 20,
+            "minimum": 3
         }
     ]
 }
