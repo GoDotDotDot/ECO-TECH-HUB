@@ -352,7 +352,9 @@ PUT
 | ---- | -------- | -------------------------- |
 | id   | `int`    | 设备ID                      |
 | mode | `string` | 当前控制模式，可选项为`auto`、`manual`、`smart` |
-| data | `object` |                            |
+| data | `object` | json格式地数据 |
+| stationId | `int` | 站点id |
+| userId | `int` | 用户id |
 
 当`data`为`Object`时，数据格式如下：
 
@@ -370,15 +372,15 @@ PUT
 当`data`为`Boolean`时，控制模式为`manual`，数据格式如下：
 ```json
 {
-	"status":"true或者false"
+	"status" : "true或者false",
 }
 ```
 4.Response
 
 ```json
 {
-  "message":"成功！" // 消息,
-  "status":true
+  "message" : "成功！" // 消息,
+  "status" : true
 }
 ```
 
