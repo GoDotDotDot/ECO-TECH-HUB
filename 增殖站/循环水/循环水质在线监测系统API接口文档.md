@@ -106,11 +106,11 @@ GET
 }
 ```
 
-### 4.WS:/getAll24HoursData(获取24小时所有设备的监测数据)
+### 4.GET/getAll24HoursData(获取24小时所有设备的监测数据)
 
 1.类型
 
-Websocket
+Http
 
 2.Request
 
@@ -149,8 +149,6 @@ Websocket
   ]
 }
 ```
-
-### 
 
 ## 监控视频
 
