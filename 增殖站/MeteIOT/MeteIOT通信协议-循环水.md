@@ -293,21 +293,35 @@ io(String:config.meteProxy, {
 
 #### 2.REQUEST
 
-请求体为`Array`，数组子项数据结构示例如下：
+请求体为`Array`，数组数据结构示例如下：
 
 ```json
-{
-	"data":{
-        "value":8.63, // 传感器值
-        "temperature":22, // 温度值
-        "deviceId":"PH202-001", // 传感器设备ID
-        "type":"Monitor", // 事件类型
-        "equipTypeId":12, // 设备类型ID
-        "temperatureId":10, // 温度设备ID，即将弃用！！！
-        "createTime":"2018-5-14 14:34:42" // 数据生成时间
-    },
-    "id":2 // ID暂时为站点ID
-}
+[
+    {
+		"data":{
+			"value":8.63, // 传感器值
+			"temperature":22, // 温度值
+			"deviceId":"PH202-001", // 传感器设备ID
+			"type":"Monitor", // 事件类型
+			"equipTypeId":12, // 设备类型ID
+			"temperatureId":10, // 温度设备ID，即将弃用！！！
+			"createTime":"2018-5-14 14:34:42" // 数据生成时间
+		},
+		"id":2 // ID暂时为站点ID
+	},
+	{
+		"data":{
+			"value":8.63, // 传感器值
+			"temperature":22, // 温度值
+			"deviceId":"PH202-001", // 传感器设备ID
+			"type":"Monitor", // 事件类型
+			"equipTypeId":12, // 设备类型ID
+			"temperatureId":10, // 温度设备ID，即将弃用！！！
+			"createTime":"2018-5-14 14:34:42" // 数据生成时间
+		},
+		"id":2 // ID暂时为站点ID
+	}
+]
 ```
 
 #### 3.RESPONSE
