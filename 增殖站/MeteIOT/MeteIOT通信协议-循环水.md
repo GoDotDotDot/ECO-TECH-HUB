@@ -269,13 +269,13 @@ io(String:config.meteProxy, {
 ```json
 {
 	"data":{
-        "value":8.63, // 传感器值
+        "value":8.63, // 传感器值(后端需要)
         "temperature":22, // 温度值
         "deviceId":"PH202-001", // 传感器设备ID
         "type":"Monitor", // 事件类型
-        "equipTypeId":12, // 设备类型ID
+        "equipId":12, // 设备ID(后端需要)
         "temperatureId":10, // 温度设备ID，即将弃用！！！
-        "createTime":"2018-5-14 14:34:42" // 数据生成时间
+        "createTime":"2018-5-14 14:34:42" // 数据生成时间(后端需要)
     },
     "id":2 // ID暂时为站点ID
 }
@@ -299,25 +299,25 @@ io(String:config.meteProxy, {
 [
     {
 		"data":{
-			"value":8.63, // 传感器值
+			"value":8.63, // 传感器值(后端需要)
 			"temperature":22, // 温度值
 			"deviceId":"PH202-001", // 传感器设备ID
 			"type":"Monitor", // 事件类型
-			"equipTypeId":12, // 设备类型ID
+			"equipId":12, // 设备ID(后端需要)
 			"temperatureId":10, // 温度设备ID，即将弃用！！！
-			"createTime":"2018-5-14 14:34:42" // 数据生成时间
+			"createTime":"2018-5-14 14:34:42" // 数据生成时间(后端需要)
 		},
 		"id":2 // ID暂时为站点ID
 	},
 	{
 		"data":{
-			"value":8.63, // 传感器值
+			"value":8.63, // 传感器值(后端需要)
 			"temperature":22, // 温度值
 			"deviceId":"PH202-001", // 传感器设备ID
 			"type":"Monitor", // 事件类型
-			"equipTypeId":12, // 设备类型ID
+			"equipId":12, // 设备ID(后端需要)
 			"temperatureId":10, // 温度设备ID，即将弃用！！！
-			"createTime":"2018-5-14 14:34:42" // 数据生成时间
+			"createTime":"2018-5-14 14:34:42" // 数据生成时间(后端需要)
 		},
 		"id":2 // ID暂时为站点ID
 	}
