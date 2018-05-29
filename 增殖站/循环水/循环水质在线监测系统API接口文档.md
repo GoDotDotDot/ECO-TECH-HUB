@@ -122,6 +122,7 @@ http
 
 ```json
 {
+    "status": true, // 表示服务器状态，接口处理成功返回true,失败返回false
     "data": [
         {
             "location": "坝上",
