@@ -122,6 +122,7 @@ http
 
 ```json
 {
+    "status": true, // 表示服务器状态，接口处理成功返回true,失败返回false
     "data": [
         {
             "location": "坝上",
@@ -375,6 +376,7 @@ GET
       "type": "设备间",
       "pools": [
         {
+          "smart": false, // 是否具有智能控制
           "name":"酸碱度",
 		  "number": "1号池",
           "mode": "auto",
@@ -395,12 +397,14 @@ GET
           ]
         },
         {
+          "smart": false, // 是否具有智能控制
           "name": "2号池",
           "mode": "manual",
           "data": true,
           "key":"设备id",
         },
         {
+          "smart": true, // 是否具有智能控制
           "name": "3号池",
           "mode": "smart",
           "data": "设备智能运行控制中!",
