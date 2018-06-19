@@ -386,13 +386,13 @@ GET
               "date": "周一",
               "startDate": "22:00:00",
               "endDate": "23:00:00",
-              "key": "id" // key为id值,该id目前相同
+              "id": "id" // key为id值,该id目前相同
             },
             {
               "date": "周一",
               "startDate": "22:00:00",
               "endDate": "23:00:00",
-              "key": "id" // key为id值
+              "id": "id" // key为id值
             }
           ]
         },
